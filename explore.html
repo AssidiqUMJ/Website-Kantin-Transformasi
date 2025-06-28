@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore | Kantin Transformasi</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="light-theme">
+    <div class="wrapper">
+      <!-- Header -->
+      <header class="header">
+        <div class="container">
+          <div class="header-content">
+            <a href="index.html" class="logo">
+              <i class="fas fa-utensils"></i>
+              <span>KANTIN TRANSFORMASI</span>
+            </a>
+
+            <nav class="desktop-nav">
+              <ul class="nav-list">
+                <li class="nav-item dropdown">
+                  <a href="index.html" class="nav-link"
+                    >Home</a> <i class="fas fa-chevron-down"></i
+                  ></a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="kontak.html" class="nav-link"
+                    >Kontak<i class="fas fa-chevron-down"></i
+                  ></a>
+                </li>
+                <li class="nav-item">
+                  <a href="about.html" class="nav-link">Tentang Kami</a>
+                </li>
+              </ul>
+            </nav>
+
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+          <div class="container">
+            <nav>
+              <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                  <a href="index.html" class="mobile-nav-link">Home</a>
+                </li>
+                <li class="mobile-nav-item mobile-dropdown">
+                  <a href="#" class="mobile-nav-link mobile-dropdown-toggle">
+                    Food <i class="fas fa-chevron-down"></i>
+                  </a>
+                  <div class="mobile-dropdown-menu">
+                    <a href="#" class="mobile-dropdown-item">Breakfast</a>
+                    <a href="#" class="mobile-dropdown-item">Lunch</a>
+                    <a href="#" class="mobile-dropdown-item">Dinner</a>
+                    <a href="#" class="mobile-dropdown-item">Appetizers</a>
+                    <a href="#" class="mobile-dropdown-item">Snacks</a>
+                  </div>
+                </li>
+                <li class="mobile-nav-item mobile-dropdown">
+                  <a href="#" class="mobile-nav-link mobile-dropdown-toggle">
+                    Beverages <i class="fas fa-chevron-down"></i>
+                  </a>
+                  <div class="mobile-dropdown-menu">
+                    <a href="#" class="mobile-dropdown-item">Coffee</a>
+                    <a href="#" class="mobile-dropdown-item">Tea</a>
+                    <a href="#" class="mobile-dropdown-item">Smoothies</a>
+                    <a href="#" class="mobile-dropdown-item">Cocktails</a>
+                    <a href="#" class="mobile-dropdown-item">Mocktails</a>
+                  </div>
+                </li>
+                <li class="mobile-nav-item">
+                  <a href="#" class="mobile-nav-link">Recipes</a>
+                </li>
+                <li class="mobile-nav-item">
+                  <a href="about.html" class="mobile-nav-link">About</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main>
+        <section class="explore-header">
+          <div class="container text-center">
+            <h1 class="page-title">Explore Our Menu</h1>
+            <p class="page-subtitle">
+              Discover our curated selection of food and beverages from around
+              the world.
+            </p>
+          </div>
+        </section>
+
+        <section class="explore-filters">
+          <div class="container">
+            <div class="search-bar">
+              <div class="search-input">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search..." />
+              </div>
+              <button class="btn btn-outline filter-btn">
+                <i class="fas fa-filter"></i> Filters
+              </button>
+            </div>
+
+            <div class="category-tabs">
+              <button class="tab-btn active" data-category="all">Semua</button>
+              <button class="tab-btn" data-category="food">
+                <i class="fas fa-utensils"></i> Makanan
+              </button>
+              <button class="tab-btn" data-category="beverages">
+                <i class="fas fa-wine-glass-alt"></i> Minuman
+              </button>
+              <button class="tab-btn" data-category="desserts">
+                <i class="fas fa-cookie"></i> Desserts
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="explore-items">
+          <div class="container">
+            <div class="category-content active" id="Semua">
+              <div class="explore-grid">
+                <!-- Item 1 -->
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://th.bing.com/th/id/OIP.SuLLlyLrQqzJMBBbEtlOJQHaE8?w=282&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                      alt="Pasta Carbonara"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Japanese Chicken Katsu</h3>
+                    <p class="card-subtitle">Japanese Chicken Katsu adalah ayam fillet goreng tepung ala Jepang yang renyah di luar, lembut di dalam, disajikan dengan saus khas yang gurih dan manis.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://radarmukomuko.bacakoran.co/upload/7affbc40147aae95711ae5830a461b61.jpg"
+                      alt="Espresso Martini"
+                      \\
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Es Lemon Tea</h3>
+                    <p class="card-subtitle">Es Lemon Tea adalah minuman teh dingin segar dengan perasan lemon, bercita rasa manis, asam, dan menyegarkan.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlI_wZxDl5l-7V_uBcRSTlDglsvFOtyegmpA&s"
+                      alt="Chocolate Cake"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Bakmie Jawa</h3>
+                    <p class="card-subtitle">Bakmi kuah atau goreng khas Jawa dengan cita rasa manis gurih</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIrhIx-wIV0qzntvQBdd6D5K1bRAOETCM_KQ&s"
+                      alt="Grilled Salmon"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">fried Vegetable</h3>
+                    <p class="card-subtitle">kombinasi yang sangat epic antara sayuran dan juga tepung yang sangat renyah dan gurih</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <!-- More items -->
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://placehold.co/300x300/png?text=Matcha+Latte"
+                      alt="Matcha Latte"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Matcha Latte</h3>
+                    <p class="card-subtitle">Refreshing drink</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://placehold.co/300x300/png?text=Apple+Pie"
+                      alt="Apple Pie"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Apple Pie</h3>
+                    <p class="card-subtitle">Sweet treat</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://placehold.co/300x300/png?text=Vegetable+Stir+Fry"
+                      alt="Vegetable Stir Fry"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Vegetable Stir Fry</h3>
+                    <p class="card-subtitle"></p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://placehold.co/300x300/png?text=Berry+Smoothie"
+                      alt="Berry Smoothie"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Berry Smoothie</h3>
+                    <p class="card-subtitle">Refreshing drink</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="category-content" id="food">
+              <div class="explore-grid">
+                <!-- Food items -->
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://i.pinimg.com/736x/67/c1/79/67c1796d65dd5f244dec7d3b1f62ea7d.jpg"
+                      alt="Pasta Carbonara"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Nasi goreng seafood</h3>
+                    <p class="card-subtitle">
+                      Pasta carbonara is a classic Italian dish originating from
+                      the Lazio region. It typically features pasta (commonly
+                      spaghetti), cured pork (like guanciale or pancetta), eggs,
+                      hard cheese (such as Pecorino Romano), and black pepper.
+                      The sauce is created by combining the heat of the freshly
+                      cooked pasta with the egg mixture, resulting in a creamy
+                      texture without the use of cream
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://awsimages.detik.net.id/community/media/visual/2022/04/18/iga-bakar-berdaging-tebal-dan-juicy-3.jpeg?w=1200"
+                      alt="Grilled Salmon"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Iga Bakar</h3>
+                    <p class="card-subtitle">
+                      Iga bakar yang empuk dan juicy, dimarinasi dengan bumbu khas lalu dibakar hingga harum. Disajikan dengan sambal dan nasi hangat, siap memanjakan lidah Anda.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://th.bing.com/th/id/OIP.SuLLlyLrQqzJMBBbEtlOJQHaE8?w=282&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                      alt="Chicken Katsu emak"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Japanese Chicken Katsu</h3>
+                    <p class="card-subtitle">
+                      Japanese Chicken Katsu adalah hidangan khas Jepang yang terdiri dari potongan ayam fillet tanpa tulang, dibalur tepung roti (panko) lalu digoreng hingga renyah dan berwarna keemasan. Bagian luarnya garing sempurna, sementara bagian dalamnya tetap juicy dan lembut.
+                      Disajikan dengan saus katsu khas Jepang yang manis dan gurih, serta nasi putih hangat, hidangan ini cocok untuk semua kalangan—baik anak-anak maupun orang dewasa. 
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://ik.imagekit.io/goodid/gnfi/uploads/articles/large-bakmi-jawa-kuliner-mie-khas-masyarakat-jawa-hd-4fdbf28f60a3d3c2b00205ae6649e0bd.jpg?tr=w-730,h-486,fo-center"
+                      alt="Beef Tacos"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Bakmie Jawa</h3>
+                    <p class="card-subtitle">
+                      Bakmie Jawa adalah hidangan mie tradisional khas Jawa yang dimasak dengan bumbu rempah-rempah khas dan cita rasa gurih yang autentik. Mie ini biasanya dimasak dengan cara ditumis atau direbus, menggunakan kaldu ayam kampung, serta dilengkapi dengan suwiran ayam, telur bebek, dan sayuran segar.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">Lihat Detail</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="category-content" id="beverages">
+              <div class="explore-grid">
+                <!-- Beverage items -->
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp4Rburpg4iWx66UromT04WpwfYWt7M_Nu7A&s"
+                      alt="Espresso Martini"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Blueberry Cocktail</h3>
+                    <p class="card-subtitle">
+                      Blueberry Cocktail adalah perpaduan elegan antara buah blueberry segar, perasan lemon atau lime, dan campuran alkohol pilihan seperti vodka atau gin. Rasanya seimbang—manis, sedikit asam, dan menyegarkan, dengan warna ungu kebiruan yang cantik dan menggoda.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">View Details</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://bing.com/th?id=OSK.8b50d9ae1adcd932dbb8faa8f0fee36a"
+                      alt="Matcha Latte"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Matcha Latte</h3>
+                    <p class="card-subtitle">
+                      A matcha latte is a creamy and vibrant green tea-based
+                      beverage made by combining matcha powder (finely ground
+                      green tea leaves) with milk. The matcha is first whisked
+                      with hot water to create a smooth paste, then mixed with
+                      steamed milk or a milk alternative. It can be served hot
+                      or iced, often sweetened with honey, syrup, or sugar to
+                      balance its earthy and slightly bitter flavor.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">View Details</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://th.bing.com/th/id/OIP.Dh9avvZAnkrgIFqMQAybZAHaHa?w=208&h=208&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                      alt="Berry Smoothie"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Berry Smoothie</h3>
+                    <p class="card-subtitle">
+                      A berry smoothie is a refreshing and nutritious beverage
+                      made by blending berries (such as strawberries,
+                      blueberries, raspberries, or blackberries) with a liquid
+                      base like milk, yogurt, or fruit juice. Additional
+                      ingredients like bananas, honey, or protein powder can be
+                      added for sweetness, texture, or nutritional value. The
+                      result is a creamy, vibrant drink packed with
+                      antioxidants, vitamins, and fiber.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">View Details</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://th.bing.com/th/id/OIP.DcnVuMeIUQqMmyrS9AzWXgHaLH?w=204&h=306&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                      alt="Mojito"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Mojito</h3>
+                    <p class="card-subtitle">
+                      A mojito is a refreshing cocktail that originated in Cuba.
+                      It typically consists of white rum, lime juice, sugar,
+                      mint leaves, and soda water. The ingredients are combined
+                      to create a balance of sweetness, citrus, and minty
+                      freshness, making it a popular choice for warm weather.
+                      The drink is often garnished with sprigs of mint or a
+                      slice of lime for added flair.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="category-content" id="desserts">
+              <div class="explore-grid">
+                <!-- Dessert items -->
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://th.bing.com/th/id/OSK.6e2bd19a08961c36cf552864d7066b69?w=194&h=122&rs=2&qlt=80&o=6&cdv=1&pid=16.1"
+                      alt="Chocolate Cake"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Chocolate Cake</h3>
+                    <p class="card-subtitle">
+                      Dessert chocolate cake is a rich and indulgent treat made
+                      with chocolate or cocoa powder as the primary flavoring
+                      ingredient. It typically includes a combination of flour,
+                      sugar, eggs, butter, and chocolate, which can be melted or
+                      powdered. The cake is baked until fluffy and moist, and it
+                      may be layered or topped with chocolate frosting, ganache,
+                      or other decorations like fruits or nuts. Variations
+                      include molten chocolate cake, Black Forest cake, and
+                      flourless chocolate cake.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">View Details</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://th.bing.com/th/id/OSK.4e44916427b15cc1825f8784cc5c9692?w=194&h=194&rs=2&qlt=80&o=6&cdv=1&dpr=1.3&pid=16.1"
+                      alt="Apple Pie"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Apple Pie</h3>
+                    <p class="card-subtitle">
+                      Dessert apple pie is a classic pastry dish featuring
+                      apples as the main ingredient. It typically consists of a
+                      flaky crust filled with sliced apples, sugar, cinnamon,
+                      and sometimes other spices like nutmeg or cloves. The pie
+                      is baked until the crust is golden and the filling is
+                      tender and aromatic. Apple pie is often served warm,
+                      paired with vanilla ice cream, whipped cream, or even a
+                      slice of cheddar cheese for a unique twist.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">View Details</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="https://popandthistle.com/wp-content/uploads/2022/04/Tiramisu.webp"
+                      alt="Tiramisu"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Tiramisu</h3>
+                    <p class="card-subtitle">
+                      Tiramisu is a classic Italian dessert known for its rich
+                      and layered flavors. It typically consists of ladyfinger
+                      biscuits soaked in coffee or espresso, layered with a
+                      creamy mixture of mascarpone cheese, egg yolks, and sugar.
+                      The dessert is often flavored with cocoa powder and
+                      sometimes includes a splash of liqueur like Marsala wine
+                      or rum. Its name, "tiramisu," translates to "pick me up"
+                      in Italian, reflecting its energizing coffee content
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">View Details</a>
+                  </div>
+                </div>
+                <div class="explore-card">
+                  <div class="card-image">
+                    <img
+                      src="hssh"
+                      alt="Cheesecake"
+                    />
+                  </div>
+                  <div class="card-header">
+                    <h3 class="card-title">Cheesecake</h3>
+                    <p class="card-subtitle">
+                      Dessert cheesecake is a rich and creamy dish made with a
+                      filling of cream cheese, eggs, and sugar, typically
+                      layered over a crust made from crushed cookies, graham
+                      crackers, or pastry. It can be baked or unbaked and is
+                      usually served chilled. Cheesecake comes in various
+                      flavors, such as vanilla, chocolate, or fruit-infused, and
+                      is often topped with ingredients like whipped cream, fruit
+                      sauces, nuts, or chocolate syrup
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-sm btn-outline">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="load-more">
+              <button class="btn btn-outline">Load More</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-column">
+              <a href="index.html" class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Kantin Transformasi</span>
+              </a>
+              <p class="footer-text">
+                Exploring the wonderful world of food and beverages with curated
+                collections, recipes, and guides.
+              </p>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-title">Categories</h3>
+              <ul class="footer-links">
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Beverages</a></li>
+                <li><a href="#">Desserts</a></li>
+                <li><a href="#">Recipes</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-title">Resources</h3>
+              <ul class="footer-links">
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Recipe Index</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-title">Company</h3>
+              <ul class="footer-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            
+             
+            <p class="copyright">
+              &copy; <span id="current-year"></span> kantin Transformasi. All
+              rights reserved.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Theme Switcher -->
+      <div class="theme-switcher">
+        <button class="theme-btn" aria-label="Switch theme">
+          <i class="fas fa-sun light-icon"></i>
+          <i class="fas fa-moon dark-icon"></i>
+        </button>
+        <div class="theme-dropdown">
+          <button class="theme-option" data-theme="light">
+            <i class="fas fa-sun"></i> Light
+          </button>
+          <button class="theme-option" data-theme="dark">
+            <i class="fas fa-moon"></i> Dark
+          </button>
+          <button class="theme-option" data-theme="autumn">
+            <i class="fas fa-leaf"></i> Autumn
+          </button>
+          <button class="theme-option" data-theme="forest">
+            <i class="fas fa-tree"></i> Forest
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

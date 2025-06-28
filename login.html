@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f97316;
+            --primary-hover: #ea580c;
+            --text-foot: #1e293b;
+            --muted-foreground: #9a3412;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+              
+        .gradient-bg {
+            background: #ffffff;
+        }
+        
+        .input-focus:focus {
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+            border-color: #f97316;
+        }
+        
+        
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .login-box {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <!-- Fixed Navigation Bar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="nav-container px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    
+                    <span class="text-xl font-bold text-slate-800">Kantin Transformasi</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-slate-600 hover:text-blue-500 transition">Home</a>
+                    <a href="kontak.html" class="text-slate-600 hover:text-blue-500 transition">Kontak</a>
+                    <a href="about.html" class="text-slate-600 hover:text-blue-500 transition">Tentang Kami</a>
+
+                </div>
+                <div class="md:hidden">
+                    <button class="text-slate-600 hover:text-blue-500">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center px-4 py-12">
+        <div class="login-box bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+                  <!-- Decorative Header -->
+            <div class="bg-orange-500 py-6 px-8 text-center">
+                <h1 class="text-3xl font-bold text-white">Welcome Back</h1>
+                <p class="text-blue-100 mt-2">Sign in to access your account</p>
+            </div>
+            
+            <!-- Login Form -->
+            <div class="p-8">
+                <form>
+                    <!-- Email Input -->
+                    <div class="mb-6">
+                        <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-slate-400"></i>
+                            </div>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg input-focus transition"
+                                placeholder="you@example.com"
+                                required
+                            >
+                        </div>
+                    </div>
+                    
+                    <!-- Password Input -->
+                    <div class="mb-6">
+                        <label for="password" class="block text-sm font-medium text-slate-700 mb-2">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-slate-400"></i>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg input-focus transition"
+                                placeholder="••••••••"
+                                required
+                            >
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <button type="button" class="text-slate-400 hover:text-slate-600" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                id="remember"
+                                class="h-4 w-4 text-blue-500 rounded border-slate-300 focus:ring-blue-500"
+                            >
+                            <label for="remember" class="ml-2 text-sm text-slate-600">Remember me</label>
+                        </div>
+                                           </div>
+                        <a href="#" class="text-sm text-orange-500 hover:text-orange-700 hover:underline">Forgot password?</a>
+                    </div>
+                    
+                    <!-- Sign In Button -->
+                    <button 
+                         type="submit" 
+                        class="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-4 rounded-lg transition duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
+                    >
+                        Sign In
+                    </button>
+                    
+                    <!-- Divider -->
+                    <div class="relative my-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-slate-300"></div>
+                        </div>
+                        <div class="relative flex justify-center">
+                            <span class="px-3 bg-white text-sm text-slate-500">Or continue with</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Login Buttons -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <button 
+                            type="button"
+                            class="flex items-center justify-center py-2 px-4 border border-slate-300 rounded-lg hover:bg-slate-50 transition"
+                        >
+                            <i class="fab fa-google text-red-500 mr-2"></i>
+                            <span class="text-sm font-medium">Google</span>
+                        </button>
+                        <button 
+                            type="button"
+                            class="flex items-center justify-center py-2 px-4 border border-slate-300 rounded-lg hover:bg-slate-50 transition"
+                        >
+                            <i class="fab fa-apple text-slate-800 mr-2"></i>
+                            <span class="text-sm font-medium">Apple</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Sign Up Link -->
+                    <div class="text-center text-sm text-slate-600">
+                                          Don't have an account? 
+                        <a href="#" class="text-orange-500 font-medium hover:text-orange-700 hover:underline">Sign up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+       <!-- Footer -->
+   <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kantin Transformasi</h3>
+                    <p class="text-gray-400">Innovative solutions for a brighter tomorrow.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="explore.html" class="text-gray-400 hover:text-white transition">Menu</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Kontak</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Recipe Index</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Tentang Kami</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Kontak</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-md text-gray-800 focus:outline-none">
+                        <button class="bg-orange-500 px-4 py-2 rounded-r-md hover:bg-orange-600 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-left text-gray-400">
+                <p>&copy; 2023 OrangeLeaf. All rights reserved.</p>
+             <div class="flex space-x-4">
+                            <div class="social-links flex space-x-4 justify-end">
+                                <a href="#" aria-label="Facebook" class="text-slate-500 hover:text-orange-500 transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" aria-label="Instagram" class="text-slate-500 hover:text-orange-500 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" aria-label="Twitter" class="text-slate-500 hover:text-orange-500 transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" aria-label="YouTube" class="text-slate-500 hover:text-orange-500 transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" aria-label="GitHub" class="text-slate-500 hover:text-orange-500 transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+        </div>
+    </footer>
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        });
+        
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            console.log('Form submitted');
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

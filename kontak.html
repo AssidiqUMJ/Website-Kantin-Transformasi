@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: #f97316;
+        box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
+      }
+      .map-container {
+        height: 300px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+      @media (min-width: 768px) {
+        .map-container {
+          height: 400px;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-40 bg-white border-b border-gray-200 h-16 shadow-sm"
+    >
+      <div
+        class="container mx-auto px-4 h-full flex items-center justify-between"
+      >
+        <div class="logo flex items-center gap-2 font-bold text-xl">
+          <span>Kantin Transformasi</span>
+        </div>
+        <nav class="hidden md:flex items-center space-x-6">
+          <a
+            href="index.html"
+            class="text-gray-600 hover:text-orange-500 transition"
+            >Home</a
+          >
+          <a
+            href="explore.html"
+            class="text-gray-600 hover:text-emerald-500 transition"
+            >Menu</a
+          >
+          <a href="#" class="text-orange-500 font-medium">Kontak</a>
+          <a
+            href="about.html"
+            class="text-gray-600 hover:text-orange-500 transition"
+            >Tentang Kami</a
+          >
+        </nav>
+        <button class="md:hidden text-gray-600">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </header>
+    <main class="py-12 px-4">
+      <div class="container mx-auto">
+        <!-- Page Title -->
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-800 mb-3">Hubungi Kami</h1>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Kami ingin sekali mendengar dari Anda! Jika Anda memiliki pertanyaan
+            tentang layanan, harga, atau hal lainnya, tim kami siap menjawab
+            semua pertanyaan Anda.
+          </p>
+        </div>
+
+        <!-- Contact Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div
+            class="contact-card bg-white p-6 rounded-lg shadow-md transition duration-300"
+          >
+            <div
+              class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-map-marker-alt text-orange-500 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">
+              Lokasi Kami
+            </h3>
+            <p class="text-gray-600 mb-3">
+              RVHF+42 Cemp. Putih Tim., Kota Jakarta Pusat, Daerah Khusus
+              Ibukota Jakarta
+            </p>
+            <a
+              href="#"
+              class="text-orange-500 hover:underline flex items-center"
+            >
+              View on map <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+          </div>
+
+          <div
+            class="contact-card bg-white p-6 rounded-lg shadow-md transition duration-300"
+          >
+            <div
+              class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-phone-alt text-orange-500 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">
+              Hubungi Kami
+            </h3>
+            <p class="text-gray-600 mb-3">Senin - Jumat: 9 pagi - 6 sore</p>
+            <a
+              href="tel:+62 858-9489-9144"
+              class="text-orange-500 hover:underline"
+            >
+              +62 858-9489-9144
+            </a>
+          </div>
+
+          <div
+            class="contact-card bg-white p-6 rounded-lg shadow-md transition duration-300"
+          >
+            <div
+              class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-envelope text-orange-500 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Email Kami</h3>
+            <p class="text-gray-600 mb-3">
+              Kami akan merespons dalam waktu 24 jam
+            </p>
+            <a
+              href="assidiq.nr@gmail.com"
+              class="text-orange-500 hover:underline"
+            >
+              assidiq.nr@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form and Map -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Contact Form -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+              Kirim Pesan Anda
+            </h2>
+            <form class="contact-form space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    for="name"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Nama</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="subject"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Judul</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
+                />
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Pesan</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-orange-500 text-white py-3 px-4 rounded-md hover:bg-orange-600 transition duration-300 font-medium"
+              >
+                Kirim Pesan
+              </button>
+            </form>
+          </div>
+
+          <!-- Map and Social Media -->
+          <div class="space-y-6">
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.690716747376!2d106.86996617409555!3d-6.172148960481945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f502482aca31%3A0x442225dc43c344ca!2sFakultas%20Teknik%20Universitas%20Muhammadiyah%20Jakarta!5e0!3m2!1sid!2sid!4v1751109837949!5m2!1sid!2sid"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-semibold mb-4 text-gray-800">
+                Terhubung dengan Kami
+              </h3>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center hover:bg-pink-600 transition"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition"
+                >
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Kantin Transformasi</h3>
+            <p class="text-gray-400">
+              Innovative solutions for a brighter tomorrow.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Categories</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="explore.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Menu</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Kontak</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Tentang Kami</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Resources</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Guides</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Recipe Index</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Company</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Kontak</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Terms of Service</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+            <p class="text-gray-400 mb-4">
+              Subscribe to our newsletter for the latest updates.
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="px-4 py-2 w-full rounded-l-md text-gray-800 focus:outline-none"
+              />
+              <button
+                class="bg-orange-500 px-4 py-2 rounded-r-md hover:bg-orange-600 transition"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-6 text-left text-gray-400">
+          <p>&copy; 2025 Kantin Transformasi. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple form validation
+      document
+        .querySelector(".contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+
+          if (!name || !email || !subject || !message) {
+            alert("Please fill in all fields");
+            return;
+          }
+
+          if (!email.includes("@")) {
+            alert("Please enter a valid email address");
+            return;
+          }
+
+          // In a real application, you would send the form data to a server here
+          alert("Thank you for your message! We will get back to you soon.");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
