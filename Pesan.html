@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan | KANTIN TRANSFORMASI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal:not(.active) {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .cart-dropdown-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .cart-dropdown-menu.active {
+            max-height: 1000px;
+        }
+        .mobile-dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-dropdown-menu.active {
+            max-height: 1000px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-1">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold text-orange-600">Kantin Transformasi</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-orange-600">Home</a>
+                    <a href="explore.html" class="hover:text-orange-600">Menu</a>
+                    <a href="kontak.html" class="hover:text-orange-600">Kontak</a>
+                    <a href="about.html" class="hover:text-orange-600">Tentang Kami</a>
+                    
+                    <!-- Cart Button -->
+                    <div class="relative">
+                        <button class="cart-toggle-btn flex items-center space-x-1 hover:text-orange-600">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-item-count" class="bg-orange-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        </button>
+                        
+                        <!-- Cart Dropdown -->
+                        <div class="cart-dropdown-menu absolute right-0 mt-2 w-72 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-3">Total Pesanan</h3>
+                                <ul id="cart-items-list" class="space-y-2 max-h-60 overflow-y-auto">
+                                    <!-- Items will be added here -->
+                                </ul>
+                                <div class="empty-cart-message py-4 text-center text-gray-500">
+                                    Your cart is empty
+                                </div>
+                                <div class="border-t border-gray-200 mt-3 pt-3 flex justify-between items-center">
+                                    <span class="font-semibold">Total:</span>
+                                    <span id="cart-total-price" class="font-bold">Rp 0</span>
+                                </div>
+                                <button id="view-cart-btn" class="mt-3 w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-700 transition">
+                                    Bayar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden mobile-menu-toggle">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="md:hidden mobile-menu-container mt-3 hidden">
+                <div class="space-y-2">
+                    <a href="index.html" class="block py-2 hover:bg-gray-100 px-2 rounded">Home</a>
+                    <a href="#" class="block py-2 hover:bg-gray-100 px-2 rounded">Menu</a>
+                    
+                    <div>
+                        <a href="#" class="mobile-dropdown-toggle flex items-center justify-between py-2 hover:bg-gray-100 px-2 rounded">
+                            <span>Categories</span>
+                            <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                        </a>
+                        <div class="mobile-dropdown-menu pl-4">
+                            <a href="explore.html" class="block py-2 hover:bg-gray-100 px-2 rounded">Makanan</a>
+                            <a href="explore.html" class="block py-2 hover:bg-gray-100 px-2 rounded">Minuman</a>
+                            <a href="explore.html" class="block py-2 hover:bg-gray-100 px-2 rounded">Dessert</a>
+                        </div>
+                    </div>
+                    
+                    <a href="kontak.html" class="block py-2 hover:bg-gray-100 px-2 rounded">Kontak</a>
+                    <a href="about.html" class="block py-2 hover:bg-gray-100 px-2 rounded">Tentang Kami/a>
+                    
+                    <div class="flex items-center py-2 px-2">
+                        <i class="fas fa-shopping-cart mr-2"></i>
+                        <span id="mobile-cart-item-count" class="bg-orange-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Menu Kami</h1>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Product 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                <img src="https://th.bing.com/th/id/OIP.SuLLlyLrQqzJMBBbEtlOJQHaE8?w=282&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Product" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Japanese Chicken Katsu</h3>
+                    <p class="text-gray-600 mb-3">Japanese Chicken Katsu adalah ayam fillet goreng tepung ala Jepang yang renyah di luar, lembut di dalam, disajikan dengan saus khas yang gurih dan manis.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-orange-600">Rp 15.000</span>
+                        <button class="add-to-cart-btn bg-orange-600 text-white px-3 py-1 rounded hover:bg-orange-700 transition" 
+                                data-id="1" 
+                                data-name="Wireless Headphones" 
+                                data-price="1250000">
+                            Beli
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                <img src="https://via.placeholder.com/300x200" alt="Product" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Es Lemon tea</h3>
+                    <p class="text-gray-600 mb-3">Track your fitness and stay connected</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-orange-600">Rp 5.000</span>
+                        <button class="add-to-cart-btn bg-orange-600 text-white px-3 py-1 rounded hover:bg-orange-700 transition" 
+                                data-id="2" 
+                                data-name="Smart Watch" 
+                                data-price="2500000">
+                            Beli
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                <img src="https://via.placeholder.com/300x200" alt="Product" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Bluetooth Speaker</h3>
+                    <p class="text-gray-600 mb-3">Portable speaker with 20h battery life</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-orange-600">Rp 750,000</span>
+                        <button class="add-to-cart-btn bg-orange-600 text-white px-3 py-1 rounded hover:bg-orange-700 transition" 
+                                data-id="3" 
+                                data-name="Bluetooth Speaker" 
+                                data-price="750000">
+                            Beli
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                <img src="https://via.placeholder.com/300x200" alt="Product" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Laptop Backpack</h3>
+                    <p class="text-gray-600 mb-3">Water-resistant with USB charging port</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-orange-600">Rp 450,000</span>
+                        <button class="add-to-cart-btn bg-orange-600 text-white px-3 py-1 rounded hover:bg-orange-700 transition" 
+                                data-id="4" 
+                                data-name="Laptop Backpack" 
+                                data-price="450000">
+                            Beli
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Product 5 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                <img src="https://via.placeholder.com/300x200" alt="Product" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Laptop Backpack</h3>
+                    <p class="text-gray-600 mb-3">Water-resistant with USB charging port</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-orange-600">Rp 450,000</span>
+                        <button class="add-to-cart-btn bg-orange-600 text-white px-3 py-1 rounded hover:bg-orange-700 transition" 
+                                data-id="4" 
+                                data-name="Laptop Backpack" 
+                                data-price="450000">
+                            Beli
+                        </button>
+                    </div>
+            </div>
+
+            
+            
+
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold">Your Shopping Cart</h2>
+                    <button class="close-button text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-cart-items-list" class="space-y-3 mb-4">
+                    <!-- Cart items will be added here -->
+                </div>
+                
+                <div class="modal-empty-cart-message py-8 text-center text-gray-500">
+                    <i class="fas fa-shopping-cart text-4xl mb-3 text-gray-300"></i>
+                    <p class="text-lg">Your cart is empty</p>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-4 mb-4">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold">Total:</span>
+                        <span id="modal-cart-total-price" class="font-bold text-lg">Rp 0</span>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-3">
+                    <button id="continue-shopping-btn" href="Pesan.html" class="flex-1 border border-gray-300 py-2 rounded hover:bg-gray-100 transition">
+                        Continue Shopping
+                    </button>
+                    <button id="checkout-btn" class="flex-1 bg-orange-600 text-white py-2 rounded hover:bg-orange-700 transition">
+                        Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenuContainer = document.querySelector('.mobile-menu-container');
+            
+            if (mobileMenuToggle && mobileMenuContainer) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenuContainer.classList.toggle('hidden');
+                });
+            }
+            
+            // Mobile dropdown toggles
+            const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+            mobileDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdownMenu = this.nextElementSibling;
+                    dropdownMenu.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = dropdownMenu.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
+                    }
+                });
+            });
+            
+            // Cart functionality
+            const cartModal = document.getElementById('cart-modal');
+            const closeButton = document.querySelector('.modal .close-button');
+            const continueShoppingBtn = document.getElementById('continue-shopping-btn');
+            const viewCartBtn = document.getElementById('view-cart-btn');
+            const modalCartItemsList = document.getElementById('modal-cart-items-list');
+            const modalCartTotalPrice = document.getElementById('modal-cart-total-price');
+            const modalEmptyCartMessage = document.querySelector('.modal-empty-cart-message');
+            
+            // Cart elements for navbar dropdown
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            const cartItemCountElement = document.getElementById('cart-item-count');
+            const mobileCartItemCountElement = document.getElementById('mobile-cart-item-count');
+            const cartItemsListElement = document.getElementById('cart-items-list');
+            const cartTotalPriceElement = document.getElementById('cart-total-price');
+            const emptyCartMessage = document.querySelector('.empty-cart-message');
+            
+            // Cart toggle for navbar dropdown
+            const cartToggleBtn = document.querySelector('.cart-toggle-btn');
+            const cartDropdownMenu = document.querySelector('.cart-dropdown-menu');
+            
+            // Function to open cart modal
+            function openCartModal() {
+                cartModal.classList.add('active');
+                renderModalCartItems();
+            }
+            
+            // Function to close cart modal
+            function closeCartModal() {
+                cartModal.classList.remove('active');
+            }
+            
+            // Event listeners for modal
+            if (closeButton) {
+                closeButton.addEventListener('click', closeCartModal);
+            }
+            
+            if (continueShoppingBtn) {
+                continueShoppingBtn.addEventListener('click', closeCartModal);
+            }
+            
+            if (viewCartBtn) {
+                viewCartBtn.addEventListener('click', openCartModal);
+            }
+            
+            // Close modal when clicking outside
+            if (cartModal) {
+                cartModal.addEventListener('click', function(e) {
+                    if (e.target === cartModal) {
+                        closeCartModal();
+                    }
+                });
+            }
+            
+            // Function to update cart count in navbar
+            function updateCartCount() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                
+                if (cartItemCountElement) {
+                    cartItemCountElement.textContent = totalItems;
+                }
+                
+                if (mobileCartItemCountElement) {
+                    mobileCartItemCountElement.textContent = totalItems;
+                }
+            }
+            
+            // Function to render items in navbar dropdown
+            function renderNavbarCartItems() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cartItemsListElement.innerHTML = '';
+                
+                let totalPrice = 0;
+                
+                if (cart.length === 0) {
+                    emptyCartMessage.style.display = 'block';
+                } else {
+                    emptyCartMessage.style.display = 'none';
+                    cart.forEach(item => {
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('py-2', 'border-b', 'border-gray-100');
+                        listItem.innerHTML = `
+                            <div class="flex justify-between">
+                                <span class="cart-item-name">${item.name}</span>
+                                <div>
+                                    <span class="cart-item-qty text-gray-500">${item.quantity}x</span>
+                                    <span class="cart-item-price font-semibold ml-2">Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</span>
+                                </div>
+                            </div>
+                        `;
+                        cartItemsListElement.appendChild(listItem);
+                        totalPrice += (item.price * item.quantity);
+                    });
+                }
+                
+                if (cartTotalPriceElement) {
+                    cartTotalPriceElement.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+                }
+            }
+            
+            // Function to render items in modal
+            function renderModalCartItems() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                modalCartItemsList.innerHTML = '';
+                
+                let totalModalPrice = 0;
+                
+                if (cart.length === 0) {
+                    modalEmptyCartMessage.style.display = 'block';
+                } else {
+                    modalEmptyCartMessage.style.display = 'none';
+                    cart.forEach(item => {
+                        const listItem = document.createElement('div');
+                        listItem.classList.add('flex', 'justify-between', 'py-3', 'border-b', 'border-gray-100');
+                        listItem.innerHTML = `
+                            <span class="modal-item-name">${item.name}</span>
+                            <div>
+                                <span class="modal-item-qty text-gray-500">${item.quantity}x</span>
+                                <span class="modal-item-price font-semibold ml-2">Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</span>
+                            </div>
+                        `;
+                        modalCartItemsList.appendChild(listItem);
+                        totalModalPrice += (item.price * item.quantity);
+                    });
+                }
+                
+                modalCartTotalPrice.textContent = `Rp ${totalModalPrice.toLocaleString('id-ID')}`;
+            }
+            
+            // Event listener for Add to Cart buttons
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.dataset.id;
+                    const productName = this.dataset.name;
+                    const productPrice = parseFloat(this.dataset.price);
+                    
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    
+                    const existingItemIndex = cart.findIndex(item => item.id === productId);
+                    
+                    if (existingItemIndex > -1) {
+                        cart[existingItemIndex].quantity += 1;
+                    } else {
+                        cart.push({
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            quantity: 1
+                        });
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    
+                    // Update UI
+                    updateCartCount();
+                    renderNavbarCartItems();
+                    
+                    // Open modal to show the item was added
+                    openCartModal();
+                    
+                    // Show a quick notification
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed bottom-4 right-4 bg-orange-500 text-white px-4 py-2 rounded shadow-lg animate-bounce';
+                    notification.textContent = `${productName} added to cart!`;
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                        setTimeout(() => notification.remove(), 300);
+                    }, 2000);
+                });
+            });
+            
+            // Toggle cart dropdown in navbar
+            if (cartToggleBtn && cartDropdownMenu) {
+                cartToggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    cartDropdownMenu.classList.toggle('active');
+                    if (cartDropdownMenu.classList.contains('active')) {
+                        renderNavbarCartItems();
+                    }
+                });
+                
+                document.addEventListener('click', function(e) {
+                    if (!cartToggleBtn.contains(e.target) && !cartDropdownMenu.contains(e.target)) {
+                        cartDropdownMenu.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Initialize cart on page load
+            updateCartCount();
+            renderNavbarCartItems();
+        });
+    </script>
+        <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-column">
+              <a href="index.html" class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Kantin Transformasi</span>
+              </a>
+              <p class="footer-text">
+                Menjelajahi dunia makanan dan minuman yang menakjubkan dengan
+                koleksi, resep, dan panduan yang dikurasi.
+              </p>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-title">Categories</h3>
+              <ul class="footer-links">
+                <li><a href="explore.html">Makanan</a></li>
+                <li><a href="explore.html">Minuman</a></li>
+                <li><a href="explore.html">Cemilan</a></li>
+                <li><a href="explore.html">Dessert</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-title">Resources</h3>
+              <ul class="footer-links">
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Recipe Index</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-title">Company</h3>
+              <ul class="footer-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p class="copyright">
+              &copy; <span id="current-year"></span> Kantin Transformasi. All
+              rights reserved.
+            </p>
+            <div class="social-links">
+              <a href="" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Theme Switcher -->
+      <div class="theme-switcher">
+        <button class="theme-btn" aria-label="Switch theme">
+          <i class="fas fa-sun light-icon"></i>
+          <i class="fas fa-moon dark-icon"></i>
+        </button>
+        <div class="theme-dropdown">
+          <button class="theme-option" data-theme="light">
+            <i class="fas fa-sun"></i> Light
+          </button>
+          <button class="theme-option" data-theme="dark">
+            <i class="fas fa-moon"></i> Dark
+          </button>
+          <button class="theme-option" data-theme="autumn">
+            <i class="fas fa-leaf"></i> Autumn
+          </button>
+          <button class="theme-option" data-theme="forest">
+            <i class="fas fa-tree"></i> Forest
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
